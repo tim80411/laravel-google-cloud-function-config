@@ -15,7 +15,7 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $isRunningGoogleCloudFunction = getenv('K_SERVICE');
+        $isRunningGoogleCloudFunction = (getenv('K_SERVICE') !== null);
 
         // Laravel Mix URL for assets stored on External Storage (like Google Cloud Storage or Amazon S3)
         $mixAssetUrl = $_SERVER['MIX_ASSET_URL'] ?? null;
