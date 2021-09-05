@@ -16,8 +16,9 @@
        }
     ],
     "require":{
-       "laravel/framework":"^8.0",
-       "php":"^7.4"
+        "google/cloud-functions-framework":"^0.8",
+        "laravel/framework":"^8.0",
+        "php":"^7.4"
     },
     "autoload":{
        "psr-4":{

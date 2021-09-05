@@ -80,6 +80,10 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../index.php' => $this->app->basePath('index.php'),
-        ], 'google-cloud-function-index');
+        ], 'gcf-config');
+
+        $this->publishes([
+            __DIR__ . '/../.gcloudignore' => $this->app->basePath('.gcloudignore'),
+        ], 'gcf-config');
     }
 }
