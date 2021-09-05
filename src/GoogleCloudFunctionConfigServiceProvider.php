@@ -17,8 +17,6 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
     {
         $isRunningGoogleCloudFunction = getenv('K_SERVICE');
 
-        $isRunningGoogleCloudFunction = true;
-
         // Laravel Mix URL for assets stored on External Storage (like Google Cloud Storage or Amazon S3)
         $mixAssetUrl = $_SERVER['MIX_ASSET_URL'] ?? null;
         if ($mixAssetUrl) {
@@ -37,7 +35,7 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
         }
 
         // Store compiled views in `/tmp` because they are generated at runtime
-        // and `/tmp` is the only writable directory on Lambda
+        // and `/tmp` is the only writable directory
         Config::set('view.compiled', '/tmp/storage/framework/views');
 
         // Sessions cannot be stored to files, so we use cookies by default instead

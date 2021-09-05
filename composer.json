@@ -22,7 +22,7 @@
     },
     "autoload":{
        "psr-4":{
-          "Rverrips\\LaravelGoogleCloudFunctionConfig\\":"src/"
+          "Rverrips\\LaravelGoogleCloudFunctionConfig\\":"src"
        }
     },
     "extra":{
