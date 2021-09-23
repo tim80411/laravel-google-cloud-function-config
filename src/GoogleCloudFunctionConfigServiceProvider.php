@@ -28,6 +28,9 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
             return;
         }
 
+        // Set base Storage path to tmp (writable) directory in Google Cloud Function
+        Config::set('storagePath', '/tmp/storage');
+
         // We change Laravel's default log destination to stderr
         $logDriver = Config::get('logging.default');
         if ($logDriver === 'stack') {
