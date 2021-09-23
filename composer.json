@@ -35,8 +35,12 @@
     "minimum-stability":"dev",
     "prefer-stable":true,
     "scripts": {
-        "post-package-install": [
+        "post-package-update": [
             "@php artisan vendor:publish --tag=gcf-config"
+        ],
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "FUNCTION_TARGET=laravel php -S localhost:${PORT:-8080} vendor/bin/router.php"
         ]
     }
  }
