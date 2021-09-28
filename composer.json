@@ -38,6 +38,12 @@
         "post-package-update": [
             "@php artisan vendor:publish --tag=gcf-config"
         ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=gcf-config"
+        ],
+        "post-root-package-install": [
+            "@php artisan vendor:publish --tag=gcf-config"
+        ],
         "start": [
             "Composer\\Config::disableProcessTimeout",
             "FUNCTION_TARGET=laravel php -S localhost:${PORT:-8080} vendor/bin/router.php"
