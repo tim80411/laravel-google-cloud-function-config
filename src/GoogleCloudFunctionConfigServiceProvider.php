@@ -2,9 +2,10 @@
 
 namespace Rverrips\LaravelGoogleCloudFunctionConfig;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Config;
 use RuntimeException;
+use Illuminate\Encryption\Encrypter;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\ServiceProvider;
 
 class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
 {
@@ -46,6 +47,16 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
         if ($sessionDriver === 'file') {
             Config::set('session.driver', 'cookie');
         }
+
+        // You really should set a random string as APP_KEY in the ENV.YML to load into Runtime Variables
+        // If you don't we'll generate new one with each runtime.
+        $key = Config::get('app.key');
+        if ($key === null) {
+            Config::set('app.key', 'base64:'.base64_encode(
+                Encrypter::generateKey(Config::get('config.app.cipher'))
+            ));
+        }
+
 
         // The native Laravel storage directory is read-only, we move the cache to /tmp
         // to avoid errors. If you want to actively use the cache, it will be best to use
