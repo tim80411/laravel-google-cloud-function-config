@@ -49,7 +49,7 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
         }
 
         // You really should set a random string as APP_KEY in the ENV.YML to load into Runtime Variables
-        // If you don't we'll need to generate a new one with each runtime (not desirable)
+        // If you don't we'll generate a new one with each runtime which is not desirable.
         $key = Config::get('app.key');
         if ($key === null) {
             Config::set('app.key', 'base64:'.base64_encode(
@@ -94,10 +94,10 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../index.php' => $this->app->basePath('index.php'),
-        ], 'public');
+        ], 'gcf-config');
 
         $this->publishes([
             __DIR__ . '/../.gcloudignore' => $this->app->basePath('.gcloudignore'),
-        ], 'public');
+        ], 'gcf-config');
     }
 }
