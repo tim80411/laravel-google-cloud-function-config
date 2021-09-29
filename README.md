@@ -97,14 +97,17 @@ or if you did not update your composer.json
 export FUNCTION_TARGET=YOUR_FUNCTION_NAME
 php -S localhost:8080 vendor/bin/router.php
 ```
+You should see Laravel running on http://localhost:8080 being served by the GCF runtime.  (Ctrl-C to end/exit)
 
 # Environment Setup
 
-It is highly recommend that you setup an ENV.YML file which will set your runtime environment variables in the Google Cloud.  Remember that the Google Cloud function does not persist any data, so if you require any file cache, session caching etc. to be shared across deployed functions you will need to map a Google Storage location (Currently outside the scope of this README.md).
+It is highly recommend that you setup an ENV.YML file which will set your runtime environment variables in the Google Cloud (using .env will not suffice).  Remember also that the Google Cloud function does not persist any data, so if you require any file cache, session caching to files, logfiles etc. to be shared across deployed functions you will need to map a Google Storage location. (Currently outside the scope of this README.md).
+
+The **GoogleCloudFunctionConfigServiceProvider** is basically a set of *working defaults for GCF* - It works, maybe not the best, but it works.
 
 At a minimum it's recommend to set the APP_KEY as a runtime the Environment Variable.
 
-The **GoogleCloudFunctionConfigServiceProvider** is basically a set of *working defaults for GCF* - It works, maybe not the best, but it works.
+Note that ENV.YML file syntax would be something like APP_KEY: "base64:/abc123....123abcs="  (colon, not equals like in .env)
 
 # Deployment
 1. Login to Google Cloud SDK:
