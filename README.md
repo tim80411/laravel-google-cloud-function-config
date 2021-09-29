@@ -1,5 +1,11 @@
-# laravel-google-cloud-function-config
-(last updated September 2021 / Laravel 8 / GCF v 0.7)
+<p align="center">
+<h1>Laravel Google Cloud Function Config</h1>
+<a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/dt/rverrips/laravel-google-cloud-function-config" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/v/rverrips/laravel-google-cloud-function-config" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/l/rverrips/laravel-google-cloud-function-config" alt="License"></a>
+</p>
+
+last updated September 2021 / Laravel 8 / GCF v 0.7
 
 Basic Configuration for running Laravel as a native php Google Cloud Function
 
@@ -94,20 +100,20 @@ php -S localhost:8080 vendor/bin/router.php
 
 # Environment Setup
 
-It is highly recommend that you setup an ENV.YML file which will set your runtime environment variables in the Google Cloud.  Remember that the Google Cloud function does not persist any data, so if you require any file cache, session caching etc. to be shared across deployed functions you will need to map a Google Storage location (Currently outside the scope of this README.md)
+It is highly recommend that you setup an ENV.YML file which will set your runtime environment variables in the Google Cloud.  Remember that the Google Cloud function does not persist any data, so if you require any file cache, session caching etc. to be shared across deployed functions you will need to map a Google Storage location (Currently outside the scope of this README.md).
 
 At a minimum it's recommend to set the APP_KEY as a runtime the Environment Variable.
 
 The **GoogleCloudFunctionConfigServiceProvider** is basically a set of *working defaults for GCF* - It works, maybe not the best, but it works.
 
 # Deployment
-1. Login to Google Cloud SDK
+1. Login to Google Cloud SDK:
 ```bash
 $:~\code\laravel-gcf\ gcloud auth login
 ```
 (This will open a browser to set the Google account to use)
 
-2. Set the Project to deploy the Cloud Function into
+2. Set the Project to deploy the Cloud Function into:
 ```bash
 $:~\code\laravel-gcf\ gcloud config set project ##YOUR PROJECT##
 ```
@@ -124,4 +130,7 @@ Assuming no errors, you can now view your laravel app at the specified location 
 
 Usually something like https://us-central1-YOUR_PROJECT.cloudfunctions.net/YOUR_FUNCTION
 
-Note: This is still very much Alpha Code / PRs and Updates to the Docs welcome
+Note: This is still very much Alpha Code / PRs and Updates to the Docs welcome.
+
+# License 
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
