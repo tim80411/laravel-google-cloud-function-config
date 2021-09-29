@@ -4,8 +4,7 @@
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/v/rverrips/laravel-google-cloud-function-config" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/l/rverrips/laravel-google-cloud-function-config" alt="License"></a>
 </p>
-
-last updated September 2021 / Laravel 8 / GCF v 0.7
+*Last substantial update in September 2021 / Laravel 8.6 / GCF v 0.7*
 
 Basic Configuration for running Laravel as a native php Google Cloud Function
 
