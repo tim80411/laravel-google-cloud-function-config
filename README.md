@@ -14,7 +14,7 @@ Basic Configuration for running Laravel as a native php Google Cloud Function
 # Installation
 1. For local testing and deployment install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
 
-Might be as simple as: 
+Might be as simple as:
 ```bash
 brew install google-cloud-sdk
 ```
@@ -23,23 +23,23 @@ brew install google-cloud-sdk
 
 Should be as simple as:
 ```bash
-$:~\ cd ~\code
-$:~\code\ laravel new laravel-gcf
+:~$ cd ~/code
+:~/code$ laravel new laravel-gcf
 
-##(Installation details here)## 
+##(Installation details here)##
 
-$:~\code\ cd laravel-gcf
-$:~\code\laravel-gcf
+:~/code$ cd laravel-gcf
+:~/code/laravel-gcf$
 ```
 
 3. Add this package
 ```bash
-$:~\code\laravel-gcf\ composer require rverrips/laravel-google-cloud-function-config
+:~/code/laravel-gcf$ composer require rverrips/laravel-google-cloud-function-config
 ```
 
 4. Publish the assets (index.php and .gcloudingnore into root of project)
 ```bash
-$:~\code\laravel-gcf\ php artisan vendor:publish 'gcf-config'
+:~/code/laravel-gcf$ php artisan vendor:publish 'gcf-config'
 ```
 
 # Local Testing
@@ -90,12 +90,12 @@ $:~\code\laravel-gcf\ php artisan vendor:publish 'gcf-config'
 
 2. Test locally with the [Google Cloud Function PHP runtime](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-configure-php)
 ```bash
-$:~\code\laravel-gcf\ composer start
+:~/code/laravel-gcf$ composer start
 ```
 or if you did not update your composer.json
 ```bash
-export FUNCTION_TARGET=YOUR_FUNCTION_NAME
-php -S localhost:8080 vendor/bin/router.php
+:~/code/laravel-gcf$ export FUNCTION_TARGET=YOUR_FUNCTION_NAME
+:~/code/laravel-gcf$ php -S localhost:8080 vendor/bin/router.php
 ```
 You should see Laravel running on http://localhost:8080 being served by the GCF runtime.  (Ctrl-C to end/exit)
 
@@ -110,24 +110,25 @@ At a minimum it's recommend to set the APP_KEY as a runtime the Environment Vari
 Note that ENV.YML file syntax would be something like APP_KEY: "base64:/abc123....123abcs="  (colon, not equals like in .env)
 
 # Deployment
+
 1. Login to Google Cloud SDK:
 ```bash
-$:~\code\laravel-gcf\ gcloud auth login
+:~/code/laravel-gcf$ gcloud auth login
 ```
 (This will open a browser to set the Google account to use)
 
 2. Set the Project to deploy the Cloud Function into:
 ```bash
-$:~\code\laravel-gcf\ gcloud config set project ##YOUR PROJECT##
+:~/code/laravel-gcf$ gcloud config set project ##YOUR PROJECT##
 ```
 
 3. Deploy the Cloud Function
 ```bash
-$:~\code\laravel-gcf\ gcloud functions deploy ##YOUR FUNCTION NAME## --runtime php74 --allow-unauthenticated --trigger-http --env-vars-file env.yml --entry-point=laravel
+:~/code/laravel-gcf$ gcloud functions deploy ##YOUR FUNCTION NAME## --runtime php74 --allow-unauthenticated --trigger-http --env-vars-file env.yml --entry-point=laravel
 ```
 
 4. Test Deployment
-Deployment should take about 2 minutes. 
+Deployment should take about 2 minutes.
 
 Assuming no errors, you can now view your laravel app at the specified location in the deployment trigger.
 
@@ -135,5 +136,6 @@ Usually something like https://us-central1-YOUR_PROJECT.cloudfunctions.net/YOUR_
 
 Note: This is still very much Alpha Code / PRs and Updates to the Docs welcome.
 
-# License 
+# License
+
 This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
