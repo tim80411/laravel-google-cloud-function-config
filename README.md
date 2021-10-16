@@ -1,5 +1,5 @@
+![Laravel Google Cloud Function Config](laravel-gcf-banner.png)
 <p align="center">
-<h1>Laravel Google Cloud Function Config</h1>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/dt/rverrips/laravel-google-cloud-function-config" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/v/rverrips/laravel-google-cloud-function-config" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/l/rverrips/laravel-google-cloud-function-config" alt="License"></a>
