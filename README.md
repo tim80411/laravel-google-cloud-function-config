@@ -128,6 +128,7 @@ Note that ENV.YML file syntax would be something like APP_KEY: "base64:/abc123..
 ```
 
 4. Test Deployment
+
 Deployment should take about 2 minutes.
 
 Assuming no errors, you can now view your laravel app at the specified location in the deployment trigger.
