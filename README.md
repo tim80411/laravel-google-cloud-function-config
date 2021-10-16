@@ -16,7 +16,7 @@ Basic Configuration for running Laravel as a native php Google Cloud Function
 
 Might be as simple as:
 ```bash
-brew install google-cloud-sdk
+:~$ brew install google-cloud-sdk
 ```
 
 2. Locally install new [Laravel Application](https://laravel.com/docs/8.x/installation#the-laravel-installer)
