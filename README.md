@@ -1,5 +1,5 @@
+![Laravel Google Cloud Function Config](laravel-gcf-banner.png)
 <p align="center">
-<h1>Laravel Google Cloud Function Config</h1>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/dt/rverrips/laravel-google-cloud-function-config" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/v/rverrips/laravel-google-cloud-function-config" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/l/rverrips/laravel-google-cloud-function-config" alt="License"></a>
@@ -14,7 +14,7 @@ Basic Configuration for running Laravel as a native php Google Cloud Function
 # Installation
 1. For local testing and deployment install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
 
-Might be as simple as: 
+Might be as simple as:
 ```bash
 brew install google-cloud-sdk
 ```
@@ -26,7 +26,7 @@ Should be as simple as:
 $:~\ cd ~\code
 $:~\code\ laravel new laravel-gcf
 
-##(Installation details here)## 
+##(Installation details here)##
 
 $:~\code\ cd laravel-gcf
 $:~\code\laravel-gcf
@@ -127,7 +127,7 @@ $:~\code\laravel-gcf\ gcloud functions deploy ##YOUR FUNCTION NAME## --runtime p
 ```
 
 4. Test Deployment
-Deployment should take about 2 minutes. 
+Deployment should take about 2 minutes.
 
 Assuming no errors, you can now view your laravel app at the specified location in the deployment trigger.
 
@@ -135,5 +135,5 @@ Usually something like https://us-central1-YOUR_PROJECT.cloudfunctions.net/YOUR_
 
 Note: This is still very much Alpha Code / PRs and Updates to the Docs welcome.
 
-# License 
+# License
 This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
