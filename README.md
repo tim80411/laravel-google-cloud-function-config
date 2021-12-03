@@ -33,15 +33,12 @@ Should be as simple as:
 ```
 
 3. Add this package
+
 ```bash
 :~/code/laravel-gcf$ composer require rverrips/laravel-google-cloud-function-config
 ```
 
-4. Publish the assets (index.php and .gcloudingnore into root of project)
-```bash
-:~/code/laravel-gcf$ php artisan vendor:publish 'gcf-config'
-```
-
+Note that the package will publish the assets (index.php and .gcloudingnore) into root of project
 # Local Testing
 1. Optional: Add local startup to composer.json scripts
 
