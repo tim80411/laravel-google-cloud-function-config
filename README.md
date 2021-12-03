@@ -5,7 +5,7 @@
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/l/rverrips/laravel-google-cloud-function-config" alt="License"></a>
 </p>
 
-Last substantial update in ***September 2021*** / Laravel 8 / PHP 7.4 / Google Cloud Function Framework 0.7
+Last substantial update in ***December 2021*** / Laravel 8 / PHP 7.4 / Google Cloud Function Framework 1.1
 
 Basic Configuration for running Laravel as a native php Google Cloud Function
 
@@ -40,7 +40,7 @@ Should be as simple as:
 
 Note that the package will publish the assets (index.php and .gcloudingnore) into root of project
 # Local Testing
-1. Optional: Add local startup to composer.json scripts
+1. Optional: Add local "start" script to composer.json in root of your project in the "scripts" section
 
 (before)
 ````json
@@ -86,6 +86,7 @@ Note that the package will publish the assets (index.php and .gcloudingnore) int
 ```
 
 2. Test locally with the [Google Cloud Function PHP runtime](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-configure-php)
+
 ```bash
 :~/code/laravel-gcf$ composer start
 ```
@@ -133,6 +134,7 @@ Assuming no errors, you can now view your laravel app at the specified location 
 Usually something like https://us-central1-YOUR_PROJECT.cloudfunctions.net/YOUR_FUNCTION
 
 Note: This is still very much Alpha Code / PRs and Updates to the Docs welcome.
+
 
 # License
 
