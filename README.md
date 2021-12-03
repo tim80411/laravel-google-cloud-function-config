@@ -39,7 +39,7 @@ Should be as simple as:
 ```
 
 Note that the package will publish the assets (index.php and .gcloudingnore) into root of project
-# Local Testing
+# Running Locally
 1. Optional: Add local "start" script to composer.json in root of your project in the "scripts" section
 
 (before)
@@ -85,7 +85,7 @@ Note that the package will publish the assets (index.php and .gcloudingnore) int
     },
 ```
 
-2. Test locally with the [Google Cloud Function PHP runtime](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-configure-php)
+2. Run locally with the [Google Cloud Function PHP runtime](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-configure-php)
 
 ```bash
 :~/code/laravel-gcf$ composer start
@@ -95,7 +95,7 @@ or if you did not update your composer.json
 :~/code/laravel-gcf$ export FUNCTION_TARGET=YOUR_FUNCTION_NAME
 :~/code/laravel-gcf$ php -S localhost:8080 vendor/bin/router.php
 ```
-You should see Laravel running on http://localhost:8080 being served by the GCF runtime.  (Ctrl-C to end/exit)
+You should see Laravel running on http://localhost:8080 being served by the GCF runtime exactly as it would be in the cloud.  (Ctrl-C to end/exit)
 
 # Environment Setup
 
@@ -133,7 +133,7 @@ Assuming no errors, you can now view your laravel app at the specified location 
 
 Usually something like https://us-central1-YOUR_PROJECT.cloudfunctions.net/YOUR_FUNCTION
 
-Note: This is still very much Alpha Code / PRs and Updates to the Docs welcome.
+Note: This package is still very much Alpha Code / PRs and Updates to the Docs welcome.
 
 
 # License
