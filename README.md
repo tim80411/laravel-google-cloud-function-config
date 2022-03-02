@@ -1,3 +1,6 @@
+<h1>Currently GCF only supports PHP 7.4 / Laravel 8.x</h1>
+<sub>We hope to remove this disclaimer soon, when <a href="https://cloud.google.com/functions/docs/runtime-support">GCF</a> supports a <a href="https://laravel.com/docs/9.x/releases#php-8">php8+</a> runtime</sub>
+
 ![Laravel Google Cloud Function Config](laravel-gcf-banner.png)
 <p align="center">
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/dt/rverrips/laravel-google-cloud-function-config" alt="Total Downloads"></a>
