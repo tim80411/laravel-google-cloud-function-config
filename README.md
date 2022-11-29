@@ -98,19 +98,19 @@ Note that ENV.YML file syntax would be something like APP_KEY: "base64:/abc123..
     ```
     (This will open a browser to set the Google account to use)
 
-3. Set the Project to deploy the Cloud Function into:
+2. Set the Project to deploy the Cloud Function into:
 
     ```bash
     :~/code/laravel-gcf$ gcloud config set project YOUR_PROJECT_HERE
     ```
 
-4. Deploy the Cloud Function
+3. Deploy the Cloud Function
 
     ```bash
     :~/code/laravel-gcf$ gcloud functions deploy YOUR_FUNCTION_HERE --runtime php81 --allow-unauthenticated --trigger-http --env-vars-file env.yml --entry-point=laravel
     ```
 
-5. Test Deployment
+4. Test Deployment
 
 Deployment should take about 2 minutes.
 
