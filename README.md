@@ -1,6 +1,3 @@
-<h1>Currently GCF only supports PHP 7.4 / Laravel 8.x</h1>
-<sub>We hope to remove this disclaimer soon, when <a href="https://cloud.google.com/functions/docs/runtime-support">GCF</a> supports a <a href="https://laravel.com/docs/9.x/releases#php-8">php8+</a> runtime</sub>
-
 ![Laravel Google Cloud Function Config](laravel-gcf-banner.png)
 <p align="center">
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/dt/rverrips/laravel-google-cloud-function-config" alt="Total Downloads"></a>
@@ -8,97 +5,79 @@
 <a href="https://packagist.org/packages/rverrips/laravel-google-cloud-function-config"><img src="https://img.shields.io/packagist/l/rverrips/laravel-google-cloud-function-config" alt="License"></a>
 </p>
 
-Last substantial update in ***December 2021*** / Laravel 8 / PHP 7.4 / Google Cloud Function Framework 1.1
-
 Basic Configuration for running Laravel as a native php Google Cloud Function
 
 *Highly inspired by and with special thanks to the [Bref Service Provider](https://github.com/brefphp/laravel-bridge/blob/master/src/BrefServiceProvider.php)*
 
 # Installation
+
 1. For local testing and deployment install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
 
-Might be as simple as:
-```bash
-:~$ brew install google-cloud-sdk
-```
+    Might be as simple as:
+
+    ```bash
+    :~$ brew install google-cloud-sdk
+    ```
 
 2. Locally install new [Laravel Application](https://laravel.com/docs/8.x/installation#the-laravel-installer)
 
-Should be as simple as:
-```bash
-:~$ cd ~/code
-:~/code$ laravel new laravel-gcf
+    Should be as simple as:
 
-##(Installation details here)##
+    ```bash
+    :~$ cd ~/code
+    :~/code$ laravel new laravel-gcf
 
-:~/code$ cd laravel-gcf
-:~/code/laravel-gcf$
-```
+    ##(Installation details here)##
+
+    :~/code$ cd laravel-gcf
+    :~/code/laravel-gcf$
+    ```
 
 3. Add this package
 
-```bash
-:~/code/laravel-gcf$ composer require rverrips/laravel-google-cloud-function-config
-```
+    ```bash
+    :~/code/laravel-gcf$ composer require rverrips/laravel-google-cloud-function-config
+    ```
 
 Note that the package will publish the assets (index.php and .gcloudingnore) into root of project
+
 # Running Locally
+
 1. Optional: Add local "start" script to composer.json in root of your project in the "scripts" section
 
-(before)
-````json
-    "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ]
-    },
-````
-
-(after)
-
-```json
-    "scripts": {
-        "start": [
-            "Composer\\Config::disableProcessTimeout",
-            "FUNCTION_TARGET=laravel php -S localhost:${PORT:-8080} vendor/bin/router.php"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ]
-    },
-```
+    ```diff
+        "scripts": {
+    +       "start": [
+    +           "Composer\\Config::disableProcessTimeout",
+    +           "FUNCTION_TARGET=laravel php -S localhost:${PORT:-8080} vendor/bin/router.php"
+    +       ],
+            "post-autoload-dump": [
+                "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+                "@php artisan package:discover --ansi"
+            ],
+            "post-update-cmd": [
+                "@php artisan vendor:publish --tag=laravel-assets --ansi"
+            ],
+            "post-root-package-install": [
+                "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            ],
+            "post-create-project-cmd": [
+                "@php artisan key:generate --ansi"
+            ]
+        },
+    ```
 
 2. Run locally with the [Google Cloud Function PHP runtime](https://cloud.google.com/functions/docs/running/function-frameworks#functions-local-ff-configure-php)
 
-```bash
-:~/code/laravel-gcf$ composer start
-```
-or if you did not update your composer.json
-```bash
-:~/code/laravel-gcf$ export FUNCTION_TARGET=YOUR_FUNCTION_NAME
-:~/code/laravel-gcf$ php -S localhost:8080 vendor/bin/router.php
-```
-You should see Laravel running on http://localhost:8080 being served by the GCF runtime exactly as it would be in the cloud.  (Ctrl-C to end/exit)
+    ```bash
+    :~/code/laravel-gcf$ composer start
+    ```
+    or if you did not update your composer.json
+    ```bash
+    :~/code/laravel-gcf$ export FUNCTION_TARGET=YOUR_FUNCTION_NAME
+    :~/code/laravel-gcf$ php -S localhost:8080 vendor/bin/router.php
+    ```
+    You should see Laravel running on http://localhost:8080 being served by the GCF runtime exactly as it would be in the cloud.  (Ctrl-C to end/exit)
 
 # Environment Setup
 
@@ -113,20 +92,23 @@ Note that ENV.YML file syntax would be something like APP_KEY: "base64:/abc123..
 # Deployment
 
 1. Login to Google Cloud SDK:
-```bash
-:~/code/laravel-gcf$ gcloud auth login
-```
-(This will open a browser to set the Google account to use)
+
+    ```bash
+    :~/code/laravel-gcf$ gcloud auth login
+    ```
+    (This will open a browser to set the Google account to use)
 
 2. Set the Project to deploy the Cloud Function into:
-```bash
-:~/code/laravel-gcf$ gcloud config set project ##YOUR PROJECT##
-```
+
+    ```bash
+    :~/code/laravel-gcf$ gcloud config set project YOUR_PROJECT_HERE
+    ```
 
 3. Deploy the Cloud Function
-```bash
-:~/code/laravel-gcf$ gcloud functions deploy ##YOUR FUNCTION NAME## --runtime php74 --allow-unauthenticated --trigger-http --env-vars-file env.yml --entry-point=laravel
-```
+
+    ```bash
+    :~/code/laravel-gcf$ gcloud functions deploy YOUR_FUNCTION_HERE --runtime php81 --allow-unauthenticated --trigger-http --env-vars-file env.yml --entry-point=laravel
+    ```
 
 4. Test Deployment
 
@@ -134,7 +116,7 @@ Deployment should take about 2 minutes.
 
 Assuming no errors, you can now view your laravel app at the specified location in the deployment trigger.
 
-Usually something like https://us-central1-YOUR_PROJECT.cloudfunctions.net/YOUR_FUNCTION
+Usually something like https://us-central1-YOUR_PROJECT_HERE.cloudfunctions.net/YOUR_FUNCTION_HERE
 
 Note: This package is still very much Alpha Code / PRs and Updates to the Docs welcome.
 
