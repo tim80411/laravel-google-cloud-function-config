@@ -39,7 +39,11 @@ Basic Configuration for running Laravel as a native php Google Cloud Function
     :~/code/laravel-gcf$ composer require rverrips/laravel-google-cloud-function-config
     ```
 
-Note that the package will publish the assets (index.php and .gcloudingnore) into root of project
+4. Publish the assets (new `index.php` + `.gcloudignore`)
+
+    ```bash
+    :~/code/laravel-gcf$ php artisan vendor:publish tag=laravel-google-cloud-function-config
+    ```
 
 # Running Locally
 
