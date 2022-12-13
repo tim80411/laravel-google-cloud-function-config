@@ -95,6 +95,6 @@ class GoogleCloudFunctionConfigServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../index.php' => $this->app->basePath('index.php'),
             __DIR__ . '/../.gcloudignore' => $this->app->basePath('.gcloudignore'),
-        ], 'laravel-assets');
+        ], 'laravel-google-cloud-function-config');
     }
 }
