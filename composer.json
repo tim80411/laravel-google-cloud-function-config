@@ -1,43 +1,43 @@
 {
-    "name":"rverrips/laravel-google-cloud-function-config",
-    "description":"Basic Configuration for running Laravel as a native php Google Cloud Function",
-    "keywords":[
-       "package",
-       "laravel",
-       "google",
-       "cloud",
-       "function"
-    ],
-    "license":"MIT",
-    "authors":[
-       {
-          "name":"Roy Verrips",
-          "email":"roy@verrips.org"
-       }
-    ],
-    "require":{
-        "google/cloud-functions-framework":"^1.1",
-        "laravel/framework":"^9.0|^8.0",
-        "php":"^8.1|^8.0|^7.4"
-    },
-    "autoload":{
-       "psr-4":{
-          "Rverrips\\LaravelGoogleCloudFunctionConfig\\":"src"
-       }
-    },
-    "extra":{
-       "laravel":{
-          "providers":[
-             "Rverrips\\LaravelGoogleCloudFunctionConfig\\GoogleCloudFunctionConfigServiceProvider"
-          ]
-       }
-    },
-    "minimum-stability":"dev",
-    "prefer-stable":true,
-    "scripts": {
-        "start": [
-            "Composer\\Config::disableProcessTimeout",
-            "FUNCTION_TARGET=laravel php -S localhost:${PORT:-8080} vendor/bin/router.php"
-        ]
-    }
- }
+   "name": "rverrips/laravel-google-cloud-function-config",
+   "description": "Basic Configuration for running Laravel as a native php Google Cloud Function",
+   "keywords": [
+      "package",
+      "laravel",
+      "google",
+      "cloud",
+      "function"
+   ],
+   "license": "MIT",
+   "authors": [
+      {
+         "name": "Roy Verrips",
+         "email": "roy@verrips.org"
+      }
+   ],
+   "require": {
+      "php": "^8.2",
+      "google/cloud-functions-framework": "^1.3",
+      "laravel/framework": "^11.9"
+   },
+   "autoload": {
+      "psr-4": {
+         "Rverrips\\LaravelGoogleCloudFunctionConfig\\": "src"
+      }
+   },
+   "extra": {
+      "laravel": {
+         "providers": [
+            "Rverrips\\LaravelGoogleCloudFunctionConfig\\GoogleCloudFunctionConfigServiceProvider"
+         ]
+      }
+   },
+   "minimum-stability": "dev",
+   "prefer-stable": true,
+   "scripts": {
+      "start": [
+         "Composer\\Config::disableProcessTimeout",
+         "FUNCTION_TARGET=laravel php -S localhost:${PORT:-8080} vendor/bin/router.php"
+      ]
+   }
+}
